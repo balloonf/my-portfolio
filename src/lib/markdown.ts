@@ -23,16 +23,36 @@ export function parseMarkdown(fileContent: string): {
   content: string
   excerpt: string
 } {
-  const { data, content } = matter(fileContent)
-  
-  // excerpt 자동 생성 (첫 번째 문단 또는 150자)
-  const excerpt = data.excerpt || 
-    content.split('\n\n')[0].replace(/[#*`]/g, '').substring(0, 150) + '...'
-  
-  return {
-    frontMatter: data as FrontMatter,
-    content,
-    excerpt
+  try {
+    const { data, content } = matter(fileContent)
+    
+    // 날짜 필드의 백슬래시 제거 (YAML 파싱 에러 방지)
+    if (data.date && typeof data.date === 'string') {
+      data.date = data.date.replace(/\\/g, '')
+    }
+    
+    // excerpt 자동 생성 (첫 번째 문단 또는 150자)
+    const excerpt = data.excerpt || 
+      content.split('\n\n')[0].replace(/[#*`]/g, '').substring(0, 150) + '...'
+    
+    return {
+      frontMatter: data as FrontMatter,
+      content,
+      excerpt
+    }
+  } catch (error) {
+    console.error('Error parsing markdown frontmatter:', error)
+    // 파싱 실패시 기본값 반환
+    return {
+      frontMatter: {
+        title: 'Untitled Post',
+        date: new Date().toISOString(),
+        tags: [],
+        published: true
+      } as FrontMatter,
+      content: fileContent,
+      excerpt: fileContent.substring(0, 150) + '...'
+    }
   }
 }
 

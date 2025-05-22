@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ktb2cGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="url(#ktb2cGrad)"/>
+  
+  <!-- E-commerce interface -->
+  <rect x="50" y="40" width="300" height="220" rx="8" fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Header -->
+  <rect x="50" y="40" width="300" height="30" fill="#1f2937"/>
+  <text x="200" y="58" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">KT Commerce Shopping</text>
+  
+  <!-- Product grid -->
+  <rect x="70" y="90" width="70" height="60" rx="5" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="75" y="95" width="60" height="35" fill="#e5e7eb"/>
+  <text x="105" y="110" font-family="Arial, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">상품 이미지</text>
+  <text x="105" y="140" font-family="Arial, sans-serif" font-size="8" fill="#1f2937" text-anchor="middle">스마트폰</text>
+  
+  <rect x="160" y="90" width="70" height="60" rx="5" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="165" y="95" width="60" height="35" fill="#e5e7eb"/>
+  <text x="195" y="110" font-family="Arial, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">상품 이미지</text>
+  <text x="195" y="140" font-family="Arial, sans-serif" font-size="8" fill="#1f2937" text-anchor="middle">노트북</text>
+  
+  <rect x="250" y="90" width="70" height="60" rx="5" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="255" y="95" width="60" height="35" fill="#e5e7eb"/>
+  <text x="285" y="110" font-family="Arial, sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">상품 이미지</text>
+  <text x="285" y="140" font-family="Arial, sans-serif" font-size="8" fill="#1f2937" text-anchor="middle">태블릿</text>
+  
+  <!-- Shopping cart -->
+  <rect x="250" y="170" width="80" height="70" rx="5" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="290" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#92400e" text-anchor="middle">장바구니</text>
+  
+  <text x="260" y="200" font-family="Arial, sans-serif" font-size="8" fill="#92400e">스마트폰 x1</text>
+  <text x="260" y="212" font-family="Arial, sans-serif" font-size="8" fill="#92400e">₩599,000</text>
+  
+  <rect x="260" y="220" width="50" height="15" rx="3" fill="#f59e0b"/>
+  <text x="285" y="230" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">결제하기</text>
+  
+  <!-- Features -->
+  <text x="70" y="180" font-family="Arial, sans-serif" font-size="9" fill="#374151">✓ 실시간 재고 확인</text>
+  <text x="70" y="195" font-family="Arial, sans-serif" font-size="9" fill="#374151">✓ 개인화 추천</text>
+  <text x="70" y="210" font-family="Arial, sans-serif" font-size="9" fill="#374151">✓ 모바일 최적화</text>
+  <text x="70" y="225" font-family="Arial, sans-serif" font-size="9" fill="#374151">✓ 안전한 결제</text>
+</svg>

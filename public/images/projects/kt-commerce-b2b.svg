@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ktb2bGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="url(#ktb2bGrad)"/>
+  
+  <!-- B2B Platform interface -->
+  <rect x="50" y="50" width="300" height="200" rx="8" fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Header -->
+  <rect x="50" y="50" width="300" height="35" fill="#1f2937"/>
+  <text x="200" y="72" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">KT Commerce B2B</text>
+  
+  <!-- Company network -->
+  <rect x="80" y="100" width="60" height="40" rx="5" fill="#3b82f6"/>
+  <text x="110" y="115" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">대기업A</text>
+  <text x="110" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">구매팀</text>
+  
+  <rect x="260" y="100" width="60" height="40" rx="5" fill="#10b981"/>
+  <text x="290" y="115" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">공급사B</text>
+  <text x="290" y="128" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">영업팀</text>
+  
+  <!-- Connection -->
+  <line x1="140" y1="120" x2="260" y2="120" stroke="#4b5563" stroke-width="3"/>
+  <polygon points="250,115 260,120 250,125" fill="#4b5563"/>
+  
+  <!-- Transaction details -->
+  <rect x="70" y="160" width="260" height="70" rx="5" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="80" y="180" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1f2937">대량 주문 처리</text>
+  
+  <text x="80" y="195" font-family="Arial, sans-serif" font-size="8" fill="#374151">• 견적 요청: 1,000,000원</text>
+  <text x="80" y="208" font-family="Arial, sans-serif" font-size="8" fill="#374151">• 계약 승인: 진행중</text>
+  <text x="80" y="221" font-family="Arial, sans-serif" font-size="8" fill="#374151">• 배송 일정: 2009.01.15</text>
+  
+  <!-- Status indicators -->
+  <circle cx="320" cy="190" r="5" fill="#10b981"/>
+  <text x="340" y="195" font-family="Arial, sans-serif" font-size="8" fill="#374151">승인</text>
+  
+  <!-- KT Logo -->
+  <rect x="20" y="20" width="40" height="20" rx="3" fill="#ffffff"/>
+  <text x="40" y="33" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">KT</text>
+</svg>

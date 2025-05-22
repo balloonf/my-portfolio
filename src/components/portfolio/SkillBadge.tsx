@@ -14,6 +14,10 @@ const categoryColors = {
   mobile: 'bg-purple-500/10 text-purple-700 dark:text-purple-300',
   devops: 'bg-orange-500/10 text-orange-700 dark:text-orange-300',
   database: 'bg-red-500/10 text-red-700 dark:text-red-300',
+  os: 'bg-yellow-500/10 text-yellow-700 dark:text-yellow-300',
+  tools: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300',
+  framework: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300',
+  project: 'bg-pink-500/10 text-pink-700 dark:text-pink-300',
   other: 'bg-gray-500/10 text-gray-700 dark:text-gray-300',
 }
 

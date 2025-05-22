@@ -30,7 +30,7 @@ export interface Experience {
 
 export interface Skill {
   name: string
-  category: 'frontend' | 'backend' | 'mobile' | 'devops' | 'database' | 'other'
+  category: 'frontend' | 'backend' | 'mobile' | 'devops' | 'database' | 'os' | 'tools' | 'framework' | 'project' | 'other'
   level: 'beginner' | 'intermediate' | 'advanced' | 'expert'
   experience?: string // e.g., "2년"
   color?: string

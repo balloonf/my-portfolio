@@ -9,7 +9,7 @@ export const siteConfig = {
   profile: {
     name: "balloonf",
     title: "시니어 백엔드 개발자",
-    bio: "15년 이상의 엔터프라이즈 시스템 개발 경험을 보유한 시니어 백엔드 개발자입니다. Java, Spring Framework를 중심으로 한 대규모 SI/SM 프로젝트 수행 경험이 풍부하며, 넷마블, 포스코, CGV 등 다양한 업계에서 안정적인 시스템 구축 및 운영 업무를 담당해왔습니다.",
+    bio: "23년 이상의 엔터프라이즈 시스템 개발 경험을 보유한 시니어 백엔드 개발자입니다. Java, Spring Framework를 중심으로 한 대규모 SI/SM 프로젝트 수행 경험이 풍부하며, 넷마블, 포스코, CGV 등 다양한 업계에서 안정적인 시스템 구축 및 운영 업무를 담당해왔습니다.",
     location: "대한민국",
     avatar: "/images/profile/avatar.png",
     resume: "/files/resume.pdf"
@@ -27,7 +27,7 @@ export const siteConfig = {
   // 기술 통계
   stats: {
     projectsCompleted: "30+",
-    yearsExperience: "15+",
+    yearsExperience: "23+",
     technologiesUsed: "25+",
     openSourceContributions: "5+"
   },
@@ -71,7 +71,7 @@ export const siteConfig = {
 // 기술 스택 (실제 데이터로 업데이트)
 export const skills = [
   // Backend
-  { name: "Java", category: "backend", level: "expert", experience: "15년+" },
+  { name: "Java", category: "backend", level: "expert", experience: "23년+" },
   { name: "Python", category: "backend", level: "advanced", experience: "5년+" },
   { name: ".NET", category: "backend", level: "intermediate", experience: "1년" },
   { name: "Spring Framework", category: "backend", level: "expert", experience: "10년+" },
@@ -90,13 +90,13 @@ export const skills = [
   { name: "MS-SQL", category: "database", level: "advanced", experience: "8년+" },
   
   // OS & Environment
-  { name: "Unix", category: "os", level: "expert", experience: "15년+" },
-  { name: "Linux", category: "os", level: "expert", experience: "15년+" },
+  { name: "Unix", category: "os", level: "expert", experience: "23년+" },
+  { name: "Linux", category: "os", level: "expert", experience: "23년+" },
   { name: "Ubuntu", category: "os", level: "advanced", experience: "5년+" },
   { name: "Windows", category: "os", level: "advanced", experience: "10년+" },
   
   // Development Tools
-  { name: "Eclipse", category: "tools", level: "expert", experience: "15년+" },
+  { name: "Eclipse", category: "tools", level: "expert", experience: "23년+" },
   { name: "Visual Studio", category: "tools", level: "intermediate", experience: "1년" },
   
   // Frameworks
@@ -105,7 +105,7 @@ export const skills = [
   
   // Project Types
   { name: "SI (System Integration)", category: "project", level: "expert", experience: "10년+" },
-  { name: "SM (System Management)", category: "project", level: "expert", experience: "15년+" }
+  { name: "SM (System Management)", category: "project", level: "expert", experience: "23년+" }
 ] as const
 
 // 경력 정보
@@ -185,7 +185,7 @@ export const projects = [
     longDescription: "넷마블의 핵심 재무관리 시스템으로, 전사적 자원관리(ERP) 시스템의 재무 모듈을 담당하여 회계, 예산관리, 비용관리 등의 업무를 지원합니다. Unix 환경에서 Java와 Python을 활용하여 시스템 운영 및 개선 업무를 수행하고 있습니다.",
     technologies: ["Java", "Python", "MS-SQL", "Eclipse", "eGovFrame", "Unix", "Ubuntu"],
     category: "Enterprise System",
-    status: "ongoing",
+    status: "in-progress",
     company: "넷마블",
     projectType: "SM",
     imageUrl: "/images/projects/netmarble-nerp.svg",

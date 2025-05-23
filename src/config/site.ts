@@ -17,7 +17,7 @@ export const siteConfig = {
 
   // 연락처 정보
   contact: {
-    email: "balloonf@example.com",
+    email: "balloonf@gmail.com",
     github: "https://github.com/balloonf",
     linkedin: "https://linkedin.com/in/balloonf",
     twitter: "https://twitter.com/balloonf",
@@ -55,7 +55,7 @@ export const siteConfig = {
     },
     {
       name: "Email",
-      url: "mailto:balloonf@example.com",
+      url: "mailto:balloonf@gmail.com",
       icon: "Mail"
     }
   ],

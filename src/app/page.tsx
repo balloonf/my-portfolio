@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { StructuredData } from '@/components/seo/StructuredData'
-import { ArrowRight, Code, User, BookOpen, Mail, MapPin } from 'lucide-react'
+import ContactForm from '@/components/contact/ContactForm'
+import { Code, User, BookOpen, Mail, MapPin } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 
 export default function Home() {
@@ -61,7 +62,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="button-responsive hover-lift">
-                <a href={siteConfig.contact.email}>
+                <a href="#contact">
                   <Mail className="w-4 h-4 mr-2" />
                   <span className="hidden sm:inline">연락하기</span>
                   <span className="sm:hidden">연락</span>
@@ -125,21 +126,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary/5 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">함께 작업하고 싶으신가요?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            새로운 프로젝트나 협업 기회가 있다면 언제든 연락주세요.
-          </p>
-          <Button size="lg" asChild>
-            <a href="mailto:contact@example.com">
-              연락하기
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </Button>
-        </div>
-      </section>
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
     </>
   )

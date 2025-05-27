@@ -60,4 +60,4 @@ export async function generateStaticParams() {
 }
 
 // 정적 생성을 위한 revalidate 설정
-export const revalidate = 3600
+export const revalidate = 60

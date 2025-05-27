@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Icon to PNG Converter</title>
+</head>
+<body>
+    <h1>SVG to PNG 변환기</h1>
+    <p>아래 버튼을 클릭하여 144x144 PNG 아이콘을 다운로드하세요.</p>
+    
+    <canvas id="canvas" width="144" height="144" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="downloadPNG()">PNG로 다운로드</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // SVG 코드
+        const svgString = `<svg width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="144" height="144" rx="24" fill="url(#gradient)"/>
+          <path d="M48 56L32 72L48 88" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M96 56L112 72L96 88" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M82 48L62 96" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="144" y2="144" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#667EEA"/>
+              <stop offset="1" stop-color="#764BA2"/>
+            </linearGradient>
+          </defs>
+        </svg>`;
+        
+        // SVG를 이미지로 변환
+        const img = new Image();
+        const blob = new Blob([svgString], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(blob);
+        
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            URL.revokeObjectURL(url);
+        };
+        
+        img.src = url;
+        
+        function downloadPNG() {
+            canvas.toBlob(function(blob) {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'icon-144x144.png';
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

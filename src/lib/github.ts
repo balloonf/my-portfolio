@@ -158,10 +158,10 @@ export const cache = {
   posts: null as BlogPostMeta[] | null,
   tags: null as string[] | null,
   lastFetch: 0,
-  ttl: 5 * 60 * 1000, // 5분 캐시
+  ttl: 2 * 60 * 1000, // 2분 캐시 (기존 5분에서 단축)
 
-  async getPosts(): Promise<BlogPostMeta[]> {
-    if (this.posts && Date.now() - this.lastFetch < this.ttl) {
+  async getPosts(force = false): Promise<BlogPostMeta[]> {
+    if (!force && this.posts && Date.now() - this.lastFetch < this.ttl) {
       return this.posts
     }
     
@@ -170,8 +170,8 @@ export const cache = {
     return this.posts
   },
 
-  async getTags(): Promise<string[]> {
-    if (this.tags && Date.now() - this.lastFetch < this.ttl) {
+  async getTags(force = false): Promise<string[]> {
+    if (!force && this.tags && Date.now() - this.lastFetch < this.ttl) {
       return this.tags
     }
     
@@ -183,10 +183,26 @@ export const cache = {
     this.posts = null
     this.tags = null
     this.lastFetch = 0
+    console.log('GitHub cache cleared')
+  },
+
+  // 캐시 상태 확인
+  getStatus() {
+    const now = Date.now()
+    const isExpired = now - this.lastFetch > this.ttl
+    const timeLeft = Math.max(0, this.ttl - (now - this.lastFetch))
+    
+    return {
+      hasPosts: !!this.posts,
+      hasTags: !!this.tags,
+      isExpired,
+      timeLeft: Math.round(timeLeft / 1000), // 초 단위
+      lastFetch: new Date(this.lastFetch).toISOString()
+    }
   }
 }
 // GitHub API에서 블로그 포스트 가져오기 (fallback 포함)
-export async function getBlogPostsWithFallback(): Promise<BlogPostMeta[]> {
+export async function getBlogPostsWithFallback(force = false): Promise<BlogPostMeta[]> {
   // GitHub Token이 없으면 fallback 데이터 사용
   if (!process.env.GITHUB_TOKEN) {
     console.warn('GITHUB_TOKEN not found, using fallback data')
@@ -194,7 +210,7 @@ export async function getBlogPostsWithFallback(): Promise<BlogPostMeta[]> {
   }
 
   try {
-    const posts = await getBlogPosts()
+    const posts = await cache.getPosts(force)
     return posts.length > 0 ? posts : fallbackPosts
   } catch (error) {
     console.error('GitHub API error, using fallback data:', error)
@@ -203,18 +219,29 @@ export async function getBlogPostsWithFallback(): Promise<BlogPostMeta[]> {
 }
 
 // 모든 태그 가져오기 (fallback 포함)
-export async function getAllTagsWithFallback(): Promise<string[]> {
+export async function getAllTagsWithFallback(force = false): Promise<string[]> {
   if (!process.env.GITHUB_TOKEN) {
     return fallbackTags
   }
 
   try {
-    const tags = await getAllTags()
+    const tags = await cache.getTags(force)
     return tags.length > 0 ? tags : fallbackTags
   } catch (error) {
     console.error('GitHub API error, using fallback tags:', error)
     return fallbackTags
   }
+}
+
+// 강제 새로고침을 위한 함수들
+export async function forceRefreshBlogPosts(): Promise<BlogPostMeta[]> {
+  console.log('Force refreshing blog posts...')
+  return await getBlogPostsWithFallback(true)
+}
+
+export async function forceRefreshTags(): Promise<string[]> {
+  console.log('Force refreshing tags...')
+  return await getAllTagsWithFallback(true)
 }
 
 // 개별 포스트 가져오기 (fallback 포함)

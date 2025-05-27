@@ -41,6 +41,44 @@ const nextConfig: NextConfig = {
         ]
       }
     ]
+  },
+
+  // PNG 아이콘 요청을 SVG로 리다이렉트 (임시 해결책)
+  async rewrites() {
+    return [
+      {
+        source: '/images/icons/icon-72x72.png',
+        destination: '/images/icons/icon-72x72.svg',
+      },
+      {
+        source: '/images/icons/icon-96x96.png',
+        destination: '/images/icons/icon-96x96.svg',
+      },
+      {
+        source: '/images/icons/icon-128x128.png',
+        destination: '/images/icons/icon-144x144.svg',
+      },
+      {
+        source: '/images/icons/icon-144x144.png',
+        destination: '/images/icons/icon-144x144.svg',
+      },
+      {
+        source: '/images/icons/icon-152x152.png',
+        destination: '/images/icons/icon-144x144.svg',
+      },
+      {
+        source: '/images/icons/icon-192x192.png',
+        destination: '/images/icons/icon-192x192.svg',
+      },
+      {
+        source: '/images/icons/icon-384x384.png',
+        destination: '/images/icons/icon-512x512.svg',
+      },
+      {
+        source: '/images/icons/icon-512x512.png',
+        destination: '/images/icons/icon-512x512.svg',
+      },
+    ]
   }
 };
 

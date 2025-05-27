@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description: '개발 관련 글과 생각을 공유합니다.',
 }
 
-// 정적 생성을 위한 revalidate 설정 (1시간마다 갱신)
-export const revalidate = 3600
+// 정적 생성을 위한 revalidate 설정 (1분마다 갱신으로 단축)
+export const revalidate = 60
 
 export default async function BlogPage() {
   let posts: BlogPostMeta[] = []

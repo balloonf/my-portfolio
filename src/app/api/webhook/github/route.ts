@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import crypto from 'crypto'
 
+// GitHub Webhook payload 타입 정의
+interface GitHubCommit {
+  added?: string[]
+  modified?: string[]
+  removed?: string[]
+}
+
+interface GitHubWebhookPayload {
+  action?: string
+  commits?: GitHubCommit[]
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.text()
@@ -21,13 +33,13 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const payload = JSON.parse(body)
+    const payload: GitHubWebhookPayload = JSON.parse(body)
     
     // push 이벤트인지 확인
     if (payload.action || request.headers.get('x-github-event') === 'push') {
       // 블로그 폴더의 파일이 변경되었는지 확인
       const blogFolder = process.env.NEXT_PUBLIC_BLOG_FOLDER || 'posts'
-      const hasBlogChanges = payload.commits?.some((commit: any) => 
+      const hasBlogChanges = payload.commits?.some((commit: GitHubCommit) => 
         commit.added?.some((file: string) => file.startsWith(blogFolder)) ||
         commit.modified?.some((file: string) => file.startsWith(blogFolder)) ||
         commit.removed?.some((file: string) => file.startsWith(blogFolder))
@@ -61,3 +73,4 @@ export async function POST(request: NextRequest) {
     )
   }
 }
+

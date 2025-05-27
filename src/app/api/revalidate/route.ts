@@ -25,7 +25,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('❌ Revalidation error:', error)
     return NextResponse.json(
-      { error: 'Failed to revalidate', details: error.message },
+      { 
+        error: 'Failed to revalidate', 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      },
       { status: 500 }
     )
   }
